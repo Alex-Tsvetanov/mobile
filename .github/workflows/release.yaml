@@ -7,9 +7,9 @@ on:
       - main
       - 'releases/**'
 jobs:
-  windows-build:
-    name: Package generator under Windows
-    runs-on: windows-latest
+  ubuntu-build:
+    name: Package generator under Ubuntu
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install Flutter
@@ -34,15 +34,15 @@ jobs:
           release_name: Development
           draft: true
           prerelease: false
-      - name: Windows package
-        uses: actions/upload-release-asset@v1.0.1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/windows/runner/Release/headstarter.exe
-          asset_name: headstarter.exe
-          asset_content_type: application/vnd.microsoft.portable-executable
+      #- name: Windows package
+      #  uses: actions/upload-release-asset@v1.0.1
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #  with:
+      #    upload_url: ${{ steps.create_release.outputs.upload_url }}
+      #    asset_path: ./build/windows/runner/Release/headstarter.exe
+      #    asset_name: headstarter.exe
+      #    asset_content_type: application/vnd.microsoft.portable-executable
       - name: Android package
         uses: actions/upload-release-asset@v1.0.1
         env:
