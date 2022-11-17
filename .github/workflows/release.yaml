@@ -23,7 +23,7 @@ jobs:
       - name: Generate release packages
         run: |
           flutter build apk
-          flutter build windows
+      #    flutter build windows
       - name: Create Draft Release
         id: create_release
         uses: actions/create-release@v1
